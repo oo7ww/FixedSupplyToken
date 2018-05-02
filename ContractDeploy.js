@@ -16,7 +16,7 @@ const abi = JSON.parse(output.contracts[':FixedSupplyToken'].interface) ;
 const contract = new web3.eth.Contract(abi);
 
 //deploy contract instance
-const contractInstance = contract.new({
+const contractInstance = contract.deploy({
     data: '0x' + bytecode,
     from: web3.eth.coinbase,
     gas:90000*2 //not sure 
