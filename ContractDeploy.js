@@ -35,6 +35,7 @@ const contractInstance = contract.deploy({
 });
 
 //deploy contract instance
+/*
 const contractInstance = contract.deploy({
     data: '0x' + bytecode,
     from: web3.eth.coinbase,
@@ -50,4 +51,5 @@ const contractInstance = contract.deploy({
         console.log('Contract address:' + res.address);
     }
 });
+*/
 
