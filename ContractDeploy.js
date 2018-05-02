@@ -13,7 +13,7 @@ const bytecode = output.contracts['FixedSupplyToken'].bytecode;
 const abi = JSON.parse(output.contracts['FixedSupplyToken'],interface) ;
 
 //contract object
-const contract web3.eth.Contract(abi);
+const contract = web3.eth.Contract(abi);
 
 //deploy contract instance
 const contractInstance = contract.new({
