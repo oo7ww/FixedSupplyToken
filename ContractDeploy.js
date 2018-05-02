@@ -9,8 +9,8 @@ const web3 = new Web3('http://localhost:8381');
 //compile the source code
 const input = fs.readFileSync('test.sol');
 const output = solc.compile(input.toString(), 1);
-const bytecode = output.contracts['FixedSupplyToken'].bin;
-const abi = JSON.parse(output.contracts['FixedSupplyToken'],abi) ;
+const bytecode = output.contracts[':FixedSupplyToken'].bytecode;
+const abi = JSON.parse(output.contracts[':FixedSupplyToken'],interface) ;
 
 //contract object
 const contract = web3.eth.Contract(abi);
