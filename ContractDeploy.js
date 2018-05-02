@@ -1,6 +1,6 @@
 #!/usr/local/bin/node
 const fs = require('fs');
-const solc = require('solc');
+var solc = require('solc');
 const Web3 = require('web3');
 
 //connect to local go-ethereum node
