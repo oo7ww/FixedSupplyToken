@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/nodejs
 const fs = require('fs');
 var solc = require('solc');
 const Web3 = require('web3');
