@@ -12,8 +12,27 @@ const output = solc.compile(input.toString(), 1);
 const bytecode = output.contracts[':FixedSupplyToken'].bytecode;
 const abi = JSON.parse(output.contracts[':FixedSupplyToken'].interface) ;
 
+console.log(bytecode);
+console.log(abi);
 //contract object
 const contract = new web3.eth.Contract(abi);
+
+//unlock the coinbase account to make transactions out of it
+console.log("Unlocking coinbase account");
+var password = "test";
+try {
+    web3.personal.unlockAccount(web3.eth.coinbase, password);
+} catch(e) {
+    console.log(e);
+    return;
+}
+
+//deploy and estimate the gas
+const contractInstance = contract.deploy({
+    data: '0x' + bytecode
+}).estimateGas(function(err, gas){
+    console.log(gas);
+});
 
 //deploy contract instance
 const contractInstance = contract.deploy({
