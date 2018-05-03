@@ -1,4 +1,4 @@
-import { privateToAddress, toBuffer} from 'ethereumjs-util';
+//import { privateToAddress, toBuffer} from 'ethereumjs-util';
 var Tx = require('ethereumjs-tx');
 const fs = require('fs');
 var solc = require('solc');
