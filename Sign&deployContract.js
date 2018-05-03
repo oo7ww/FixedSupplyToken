@@ -1,4 +1,4 @@
-
+var Tx = require('ethereumjs-tx');
 const fs = require('fs');
 var solc = require('solc');
 const Web3 = require('web3');
@@ -17,13 +17,22 @@ const private_key0 = firstAccount.privateKey;
 console.log('This is private key: '  + private_key0);
 console.log('This is address: ' + firstAccount.address);
 console.log('This is bin: ' + bytecode);
-var tx = {chainId: '10', data: '0x' + bytecode, gas: 1000000};
+//var tx = {chainId: '10', data: '0x' + bytecode, gas: 1000000};
+var rawTx = {
+    data: '0x' + bytecode,
+    gas: '1000000',
+    chainId: '10'
+}
+var tx = new Tx(rawTx);
+tx.sign(private_key0);
+var serializedTx = tx.serialize();
 
-var signed = web3.eth.accounts.signTransaction(tx, private_key0).then(console.log);
-var rawTx = await signed.rawTransaction;
-
-console.log(rawTx);
+web3.eth.sendSignedTransaction('0x'+  serializedTx.toString('hex'))
+.on('receipt', console.log);
+//var signed = web3.eth.accounts.signTransaction(tx, private_key0).then(console.log);
+//var rawTx = await signed.rawTransaction;
+//console.log(rawTx);
 //console.log(x);
-var sendover = web3.eth.sendSignedTransaction(rawTx);
+//var sendover = web3.eth.sendSignedTransaction(rawTx);
 
 console.log('send finished');
