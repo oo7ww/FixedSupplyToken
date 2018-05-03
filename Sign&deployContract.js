@@ -18,11 +18,12 @@ console.log('This is private key: '  + private_key0);
 console.log('This is address: ' + firstAccount.address);
 console.log('This is bin: ' + bytecode);
 var tx = {chainId: '10', data: '0x' + bytecode, gas: 1000000};
-var x = {};
-var signed = web3.eth.accounts.signTransaction(tx, private_key0).then(console.log > x);
 
-console.log(signed.rawTransaction);
-console.log(x);
-var sendover = web3.eth.sendSignedTransaction(signed.rawTransaction);
+var signed = web3.eth.accounts.signTransaction(tx, private_key0).then(console.log);
+var rawTx = await signed.rawTransaction;
+
+console.log(rawTx);
+//console.log(x);
+var sendover = web3.eth.sendSignedTransaction(rawTx);
 
 console.log('send finished');
