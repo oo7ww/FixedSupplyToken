@@ -1,4 +1,5 @@
 //import { privateToAddress, toBuffer} from 'ethereumjs-util';
+var ethUtils = require('ethereumjs-util');
 var Tx = require('ethereumjs-tx');
 const fs = require('fs');
 var solc = require('solc');
@@ -15,7 +16,7 @@ const contract = new web3.eth.Contract(abi);
 
 var firstAccount = web3.eth.accounts.create();
 var private_key0 = firstAccount.privateKey;
-var privateKey = export.toBuffer(private_key0);
+var privateKey = ethUtils.toBuffer(private_key0);
 console.log('This is private key: '  + private_key0);
 console.log('This is address: ' + firstAccount.address);
 console.log('This is bin: ' + bytecode);
