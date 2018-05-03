@@ -14,7 +14,7 @@ const contract = new web3.eth.Contract(abi);
 
 var firstAccount = web3.eth.accounts.create();
 var private_key0 = firstAccount.privateKey;
-var privateKey = new Buffer(private_key0.toString(), 'hex');
+var privateKey = new Buffer(private_key0, 'hex');
 console.log('This is private key: '  + private_key0);
 console.log('This is address: ' + firstAccount.address);
 console.log('This is bin: ' + bytecode);
