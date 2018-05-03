@@ -23,6 +23,6 @@ var signed = web3.eth.accounts.signTransaction(tx, private_key0).then(console.lo
 
 console.log(signed.rawTransaction);
 
-var sendover = web3.eth.sendSignedTransaction(signed.rawTransaction).then(console.log);
+var sendover = web3.eth.sendSignedTransaction(signed.rawTransaction);
 
 console.log('send finished');
