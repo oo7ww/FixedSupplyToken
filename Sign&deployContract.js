@@ -13,7 +13,8 @@ const abi = JSON.parse(output.contracts[':FixedSupplyToken'].interface);
 const contract = new web3.eth.Contract(abi);
 
 var firstAccount = web3.eth.accounts.create();
-const private_key0 = firstAccount.privateKey;
+var private_key0 = firstAccount.privateKey;
+var privateKey = new Buffer(private_key0.toString(), 'hex');
 console.log('This is private key: '  + private_key0);
 console.log('This is address: ' + firstAccount.address);
 console.log('This is bin: ' + bytecode);
@@ -24,7 +25,7 @@ var rawTx = {
     chainId: '10'
 }
 var tx = new Tx(rawTx);
-tx.sign(private_key0);
+tx.sign(privateKey);
 var serializedTx = tx.serialize();
 
 web3.eth.sendSignedTransaction('0x'+  serializedTx.toString('hex'))
