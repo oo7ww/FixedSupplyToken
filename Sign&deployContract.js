@@ -21,7 +21,7 @@ var tx = {data: '0x' + bytecode, gas: 1000000};
 
 var signed = web3.eth.accounts.signTransaction(tx, private_key0).then(console.log);
 
-console.log('signed success');
+console.log(signed.rawTransaction);
 
 var sendover = web3.eth.sendSignedTransaction(signed.rawTransaction).then(console.log);
 
