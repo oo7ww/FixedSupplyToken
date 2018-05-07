@@ -1,4 +1,4 @@
-
+//
 const fs = require('fs');
 var solc = require('solc');
 const Web3 = require('web3');
@@ -18,7 +18,7 @@ const private_key0 = '0x4fdeceafa4352e5eef12a4d34bf5bc9459c85462f7d5ebe59e6555ff
 
 //console.log(firstAccount.address);
 
-var tx = {data: '0x' + bytecode, gas: 231140};
+var tx = {data: '0x' + bytecode, gas:0x2fefd0};
 web3.eth.estimateGas({
     to: '0x0000000000000000000000000000000000000000',
     data: '0x' + bytecode
