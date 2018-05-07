@@ -24,7 +24,7 @@ web3.eth.estimateGas({
     data: '0x' + bytecode
 }).then(console.log);
 //var result = web3.eth.estimateGas();
-console.log(result);
+//console.log(result);
 //var signed = web3.eth.accounts.signTransaction(tx, private_key0).then(console.log);
 //web3.eth.sendSignedTransaction(signed.rawTransaction).then(console.log);
 
