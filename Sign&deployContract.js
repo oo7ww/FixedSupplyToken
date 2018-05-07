@@ -12,10 +12,11 @@ const abi = JSON.parse(output.contracts[':FixedSupplyToken'].interface);
 
 const contract = new web3.eth.Contract(abi);
 
-var firstAccount = web3.eth.accounts.create();
-const private_key0 = firstAccount.privateKey;
+const private_key0 = '0x4fdeceafa4352e5eef12a4d34bf5bc9459c85462f7d5ebe59e6555fff65872dc';
+//var firstAccount = web3.eth.accounts.create();
+//const private_key0 = firstAccount.privateKey;
 
-console.log(firstAccount.address);
+//console.log(firstAccount.address);
 
 var tx = {data: '0x' + bytecode, gas: 100000};
 
