@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const web3 = new Web3('http://localhost:8381');
 
-var newAccount = web3.eth.account.create();
+var newAccount = web3.eth.accounts.create();
 
 const address = newAccount.address;
 const privateKey = newAccount.privateKey;
