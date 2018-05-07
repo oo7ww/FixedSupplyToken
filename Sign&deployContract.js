@@ -1,6 +1,4 @@
-//import { privateToAddress, toBuffer} from 'ethereumjs-util';
-var ethUtils = require('ethereumjs-util');
-var Tx = require('ethereumjs-tx');
+
 const fs = require('fs');
 var solc = require('solc');
 const Web3 = require('web3');
@@ -15,27 +13,18 @@ const abi = JSON.parse(output.contracts[':FixedSupplyToken'].interface);
 const contract = new web3.eth.Contract(abi);
 
 var firstAccount = web3.eth.accounts.create();
-var private_key0 = firstAccount.privateKey;
-var privateKey = ethUtils.toBuffer(private_key0);
-console.log('This is private key: '  + private_key0);
-console.log('This is address: ' + firstAccount.address);
-console.log('This is bin: ' + bytecode);
-//var tx = {chainId: '10', data: '0x' + bytecode, gas: 1000000};
-var rawTx = {
-    data: '0x' + bytecode,
-    gas: '1000000',
-    chainId: '10'
-}
-var tx = new Tx(rawTx);
-tx.sign(privateKey);
-var serializedTx = tx.serialize();
+const private_key0 = firstAccount.privateKey;
 
-web3.eth.sendSignedTransaction('0x'+  serializedTx.toString('hex'))
-.on('receipt', console.log);
+console.log(firstAccount.address);
+
+var tx = {data: '0x' + bytecode, gas: 1000000};
+
 //var signed = web3.eth.accounts.signTransaction(tx, private_key0).then(console.log);
-//var rawTx = await signed.rawTransaction;
-//console.log(rawTx);
-//console.log(x);
-//var sendover = web3.eth.sendSignedTransaction(rawTx);
+web3.eth.sendSignedTransaction(signed.rawTransaction).then(console.log);
 
-console.log('send finished');
+web3.eth.accounts.signTransaction(tx, private_key0).then(signed => {
+    console.log('hello');
+    web3.eth.sendSignedTransaction(signed.rawTransaction);
+    console.log('contract deployed');
+    }
+);
