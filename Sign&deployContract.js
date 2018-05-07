@@ -18,7 +18,7 @@ const private_key0 = '0x4fdeceafa4352e5eef12a4d34bf5bc9459c85462f7d5ebe59e6555ff
 
 //console.log(firstAccount.address);
 
-var tx = {data: '0x' + bytecode, gas: 4550000};
+var tx = {data: '0x' + bytecode, gas: 231140};
 web3.eth.estimateGas({
     to: '0x0000000000000000000000000000000000000000',
     data: '0x' + bytecode
